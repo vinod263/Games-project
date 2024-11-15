@@ -1,0 +1,149 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(45deg, #ff6b6b, #f5f7fa);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Menu bar */
+  .menu-bar {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .menu-bar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .mode-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .mode-selector label {
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .mode-selector select {
+    padding: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Board styles */
+  .container {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    margin: 20px auto;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+  
+  .cell:hover {
+    background: #f0f8ff;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .cell.taken {
+    pointer-events: none;
+    background: #e6e6e6;
+  }
+  
+  /* Winning cells */
+  .cell.winning-cell {
+    background: #4caf50;
+    color: white;
+    animation: winning-highlight 1s infinite alternate;
+    box-shadow: 0px 0px 15px 5px #4caf50;
+  }
+  
+  @keyframes winning-highlight {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modal-content #winnerText {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .modal-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .modal-content button:hover {
+    background: #0056b3;
+  }
+  
